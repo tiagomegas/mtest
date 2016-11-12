@@ -1,0 +1,168 @@
+@import "./mixins/variables";
+
+.flightsOpen {
+  min-width: 838px !important;
+  width: 838px !important;
+}
+.flightList {
+  height: 69vw;
+}
+
+.flight-row {
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 94.1vh;
+  overflow-y: scroll;
+}
+
+.flight-box {
+  background-color: $white;
+  box-shadow: rgba(0, 0, 0, .317647) 0px 2px 7px 0px;
+  color:  rgb(48, 54, 61);
+  display:block;
+  font-size: 12px;
+  font-weight: normal;
+  margin-bottom:14px;
+  margin-top:7px;
+  position: relative;
+  transition-delay: 0s;
+  transition-duration: .3s;
+  transition-property: box-shadow;
+  transition-timing-function: ease-out;
+  width: rem-calc(720px);
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  padding: 10px 0;
+  right: -10px;
+}
+
+.price {
+  margin-right: 5px;
+  white-space: nowrap;
+  color: $blue;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  margin-top: 6%;
+}
+
+.flight-details {
+  background-color: rgba(64, 166, 221, .21);
+  border-top: 1px solid rgb(225 , 228, 230);
+  padding: 14px 0px;
+  h4 {
+    margin-bottom: 15px;
+  }
+}
+
+.tripBorder {
+  border-top: 1px dashed $grey-dark;
+  width: 70px;
+  margin-top: 9px;
+  margin-left: 17px;
+}
+
+.tripDate {
+  color: $grey-dark;
+}
+
+.route {
+  border-left: 2px solid $grey-dark;
+  height: 78px;
+}
+
+.layover {
+  border-left: 2px dashed $grey-dark;
+  height: 80px;
+  padding-top: 25px;
+  padding-left: 15px;
+  color: $grey-dark;
+  font-size: 12px;
+}
+
+.route::before {
+  content: "---";
+  color: $white;
+  position: relative;
+  top: -5px;
+  left: -9px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 1px solid #666;
+  border-radius: 50%;
+}
+
+.route::after {
+  content: "---";
+  color: $white;
+  position: relative;
+  bottom: 0;
+  left: -9px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 1px solid #666;
+  border-radius: 50%;
+}
+
+.routeDepart {
+  margin-left: 10px;
+  margin-top: -22px;
+  border-bottom: 1px dashed grey;
+}
+
+.routeReturn {
+  margin-left: 10px;
+  bottom: -13px;
+  border-bottom: 1px dashed grey;
+  position: relative;
+}
+
+.route-duration {
+  margin-left: 15px;
+  margin-top: 13px;
+}
+
+.route-duration img {
+  position: relative;
+  margin-left: -26px;
+  top: -1px;
+  margin-right: 10px;
+  background: $white;
+  border-radius: 5px;
+  padding: 2px;
+  width: 20px;
+}
+
+.place {
+  float: right;
+}
+
+.grey {
+  color: $grey-dark;
+}
+
+.airlineDisplay {
+  line-height: 0;
+  margin: 6px 0;
+}
+
+.airlineDisplay div {
+  white-space: nowrap;
+  width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+.airlineDisplay img {
+  margin-right: 5px;
+  margin-top: -3px;
+}
+
+.arrow {
+  margin-top: 7%;
+  margin-left: 7%;
+  cursor: pointer;
+}

@@ -1,0 +1,36 @@
+@import 'searchBox';
+@import 'flightList';
+@import 'resultsList';
+@import 'destination';
+@import 'hotelsList';
+
+// Overlay and modal properties
+
+.Flykt-Widget{
+  .Flykt-Widget-overlay{
+    z-index: 2;
+  }
+  .flykt-modal{
+    z-index: 5;
+  }
+  .Flykt-Widget-overlay.destinationsOpen{
+    z-index:3;
+  }
+  > div:nth-child(3){
+    z-index: 2;
+  }
+  // Modal Properties for destinations
+  > div.flykt-component-modal:nth-child(4){
+    z-index: 4;
+    //width: 45%;
+    // Modal Properties for destinations
+    > div.flykt-component-modal{
+      z-index: 5;
+      //width: 890px;
+    }
+  }
+}
+
+.ReactModalPortal {
+  background: pink;
+}

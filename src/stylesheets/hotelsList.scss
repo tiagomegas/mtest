@@ -1,0 +1,162 @@
+@import "./mixins/variables";
+
+.hotelsOpen {
+  min-width: 838px !important;
+  width: 838px;
+}
+.hotel-row {
+  height: 98%;
+  overflow-y: scroll;
+}
+
+.hotelList {
+  background-color: $white;
+  box-shadow: rgba(0, 0, 0, .317647) 0px 2px 7px 0px;
+  color:  rgb(48, 54, 61);
+  //display:block;
+  font-size: 12px;
+  font-weight: normal;
+  margin-bottom:14px;
+  margin-top:7px;
+  position: relative;
+  transition-delay: 0s;
+  transition-duration: .3s;
+  transition-property: box-shadow;
+  transition-timing-function: ease-out;
+  width: 100%;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  //padding: 10px 0;
+}
+
+.hotelList-photo img {
+  width: 120px;
+  height: 120px;
+}
+
+.hotelList div:nth-child(2) {
+  padding: 10px;
+}
+
+.hotelList-hotelName {
+  font-weight: bold;
+  font-size: 20px;
+  display: inline-flex;
+}
+
+.hotelList-stars {
+  display: inline-flex;
+}
+
+.hotelList-address {
+  display: inline-flex;
+  padding: 0 !important;
+}
+
+.hotelList-price {
+  font-size: 19px;
+  padding-top: 27%;
+  color: $blue;
+  text-align: center;
+  width: 120px;
+}
+
+.hotelList-viewDeal {
+  width: 100px;
+  background: $orange;
+  border-radius: 2px;
+  height: 35px;
+  margin: 0 auto;
+  bottom: 14px;
+  position: absolute;
+  margin-left: 12px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.roomsOpen {
+  z-index: 5 !important;
+  min-width: 808px !important;
+  width: 808px;
+  visibility: hidden;
+}
+
+.open {
+  visibility: visible;
+}
+
+.hotel-details {
+  max-height: 95vh;
+  overflow-y: auto;
+}
+
+.hotel-details-header .header-name {
+  font-size: 32px;
+  font-weight: bold;
+}
+.hotel-details-header .header-rating {
+  float: right;
+}
+
+.hotel-details-photos {
+  margin: 10px 0;
+  padding-right: 20px;
+  z-index: 0;
+  height: 60vh;
+  width: 100%;
+}
+
+.hotel-details-photos .destination-photo {
+  cursor: pointer;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.16), 5px 2px 6px rgba(0, 0, 0, 0.32);
+  height: 100%;
+  background-size: cover;
+}
+
+.hotel-details-rooms {
+  margin-top: 30px;
+}
+
+.hotel-details-amenaties {
+  margin-top: 40px;
+}
+
+.hotel-details-amenaties .amenaties-items {
+  width: 380px;
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.hotel-details-amenaties .amenaties-items .amenaties-header {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.paid::before {
+  content: '$';
+  color: green;
+  padding-right: 4px;
+  font-weight: bold;
+}
+
+.RoomTableSelector-header {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  margin-bottom: 5px;
+  padding: 5px 0;
+}
+
+.refund-disclaimer {
+  width: 360px;
+}
+
+.RoomType {
+  margin-bottom: 5px;
+  border-bottom: 1px dotted grey;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}

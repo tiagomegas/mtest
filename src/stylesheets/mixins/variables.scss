@@ -1,0 +1,139 @@
+// v2.0.0 (23/08/2016)
+$disable-blue : #497C97; // used in landing page tabs for now
+$active-blue  : #40A6DD; // used in langin page searchbox
+
+$blue   : #2ab2d8;
+$brown  : #6d5d52;
+$orange : #f9792e;
+$yellow : #edcc49;
+$black  : #000000;
+$grey   : #f2f2f2;
+$white  : #ffffff;
+$green  : #00cc66;
+$azoresgreen : #183028;
+$orange-dark : darken($orange, 30%);
+$grey-dark   : #666666;
+$fb-blue     : #424a9e;
+$google-red  : #f2301c;
+$grey-medium-dark: #d8d8d8;
+//$landing-component-bg : rgba($black, 0.7);
+$landing-component-bg : $white;
+
+$mobile-overlay : rgba($black, 0.9);
+$overlay : rgba($black, 0.8);
+
+//menu colors of landing page
+
+$landing-blue1 : #2ab2d8;
+$landing-blue2 : #40A6DD;
+$landing-blue3 : #007DCC;
+$landing-blue4 : #054BB0;
+$landing-blue5 : #08188E;
+$landing-blue6 : #0A0F68;
+
+//Interests Selector Landing Page
+// active
+$history-culture-color : #f9792e;
+$design-architecture-color : #fb5d00;
+$nature-color : #008d6c;
+$nightlife-color : #055e63;
+$beach-color : #ffdb45;
+$snow-color :  #42ccc9;
+$shopping-color: #ffc426;
+$wellness-color: #55cd8b;
+$gastronomy-color: #ff4962;
+// inactive
+$history-culture-color-dark : #4a240d;
+$design-architecture-color-dark : #4a1b00;
+$nature-color-dark : #002a20;
+$nightlife-color-dark : #011c1d;
+$beach-color-dark : #4c4114;
+$snow-color-dark :  #133c3b;
+$shopping-color-dark: #4c3a0b;
+$wellness-color-dark: #193d29;
+$gastronomy-color-dark: #4c151d;
+
+// widths and sizes in landing page form
+$small-theme-w: 93px;
+$medium-theme-w: 94px;
+$landing-form-margin-bottom: 20px;
+
+$input-left-padding  : 20px;
+$input-right-padding : 20px;
+$margin-top    : 20px;
+$margin-left   : 20px;
+$margin-right  : 20px;
+$margin-bottom : 20px;
+$margin-step-btn : 20px;
+
+$toggle-button-size : 60px;
+$tag-height : 26px;
+
+$heading        : 32px;
+$modal-title    : 29px;
+$small-heading  : 28px;
+$title          : 24px;
+$smaller-title  : 20px;
+$modal-message  : 18px;
+$large          : 18px;
+$bigger         : 16px;
+$big            : 15px;
+$footer-heading : 14px;
+$results-price  : 14px;
+$mediumPlus     : 14px;
+$font-mediumPlus: 13px;
+$medium         : 12px;
+$font-medium    : 12px;
+$populardest-bc : 12px;
+$header-form-size: 13.3333px;
+
+$font-small     : 11px;
+$small          : 10px;
+$tiny           :  8px;
+$very-tiny      :  6px;
+$facilities-title : 16px;
+$input-font-size  : 16px;
+$stepBtn-font-size: 41px;
+$tagline-font-size : 42px;
+$light   : 100;
+$italic  : 300;
+$regular : 400;
+$bold    : 600;
+
+$z-negative        :  -1;
+$z-base            :   0;
+$z-header          :   5;
+$z-basic-increment :   1;
+$z-intermediate    :   3;
+$z-logo            :   5;
+$z-popover         :  10;
+$z-overlay         : 100;
+
+$searchBtnWidth-landing: 132px;
+
+$logo-width          : 90px;
+$header-height       : 60px;
+$package-width       : 70px;
+$input-height        : 40px;
+$btn-height          : 40px;
+$step-btn-width      : 40px;
+$tableHeader-height  : 40px;
+$toggle-height       : 36px;
+$filter-height       : 34px;
+
+$header-autocomplete : 155px;
+$header-datepicker   : 183px;
+$header-searchbtn    : 95px;
+//
+// Transitions variables
+//
+$landingpage-transition : .3s;
+//
+// DatePicker specific variables
+//
+$days-font-size : 14px;
+// Mobile Fix Sizes
+$tabButtonWidthMobile : rem-calc(120);
+// WIDGET TEMPLATE
+$text-indent-searchOverview : 10px;
+$loadingSize : 15px;
