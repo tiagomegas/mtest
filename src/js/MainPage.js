@@ -10,6 +10,8 @@ import Autosuggest from 'react-autosuggest';
 import requests from '../../src/requests/requests';
 import localStorage from '../../src/localstorage/localstorage';
 import auth from '../../src/auth/auth';
+// Redux Store  -------------------------------------------------------
+import { setSession } from '../actions';
 // Components -------------------------------------------------------
 import Item from './Item';
 // React Class -----------------------------------------------------------------
@@ -29,6 +31,10 @@ var MainPage = React.createClass({
     //Check if user is logged. If not, redirects to login page
     if (!auth.loggedIn()) {
       browserHistory.push("/login");
+    }
+    else{
+      console.log(localStorage.localStorageGet("userLogged"));
+      this.props.dispatch(setSession(localStorage.localStorageGet("userLogged").name,localStorage.localStorageGet("userLogged").favourites));
     }
   },
 
@@ -169,7 +175,8 @@ var MainPage = React.createClass({
 });
 
 const mapStateToProps = state => ({
-  search: state.searchReducer
+  search: state.searchReducer,
+  user: state.userReducer
 });
 
 module.exports = connect(mapStateToProps)(MainPage);

@@ -3,7 +3,7 @@
 import React        from 'react';
 import Uuid         from 'uuid';
 import { connect }  from 'react-redux';
-import { setSearchAttribute } from '../actions';
+import { setSession } from '../actions';
 import {browserHistory } from 'react-router';
 // Internal Dependencies ------------------------------------------------------------
 import requests from '../../src/requests/requests';
@@ -39,7 +39,7 @@ var LoginPage = React.createClass({
   },
 
   Login: function(){
-    localStorage.localStorageSet("userLogged", this.state.name);
+    localStorage.localStorageSet("userLogged", {name:this.state.name, favourites:users[this.state.name].favourites});
     browserHistory.push("/");
   },
 
@@ -53,8 +53,9 @@ var LoginPage = React.createClass({
     else{
       //Create user if not
       alert('New account created')
-      users[this.state.name] = {password:this.state.password,favourites:{}};
+      users[this.state.name] = {password:this.state.password,favourites:[]};
       // Overwrite users object in localStorage
+      this.props.dispatch(setSession(this.state.name,[]));
       localStorage.localStorageSet("users",users);
       this.Login();
     }
@@ -91,5 +92,9 @@ var LoginPage = React.createClass({
 
 });
 
-module.exports = LoginPage
+const mapStateToProps = state => ({
+  user: state.userReducer
+});
+
+module.exports = connect(mapStateToProps)(LoginPage);
 
