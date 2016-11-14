@@ -14,6 +14,8 @@ import auth from '../../src/auth/auth';
 import { setSession, addFavourite } from '../actions';
 // Components -------------------------------------------------------
 import Item from './Item';
+// Constant Dependencies -------------------------------------------------------
+let users = {};
 // React Class -----------------------------------------------------------------
 var MainPage = React.createClass({
 
@@ -33,6 +35,7 @@ var MainPage = React.createClass({
       browserHistory.push("/login");
     }
     else{
+      users = localStorage.localStorageGet("users");
       let user = localStorage.localStorageGet("userLogged");
       this.props.dispatch(setSession(user.name,user.favourites));
     }
@@ -42,7 +45,13 @@ var MainPage = React.createClass({
     this.timer = null;
   },
 // Storage Methods ------------------------
-
+  addToLocalStorage: function(favourite){
+    // add to both userLogged and users
+    let tmpUser = {"name":this.props.user.name,"favourites":this.props.user.favourites.concat(favourite)};
+    users[this.props.user.name] = tmpUser;
+    localStorage.localStorageSet("users",users);
+    localStorage.localStorageSet("userLogged",tmpUser);
+  },
 // Login Methods ------------------------
   logOut: function(){
     localStorage.localStorageDelete("userLogged");
@@ -50,9 +59,12 @@ var MainPage = React.createClass({
   },
 
 // Handler Methods ------------------------
-  select: function(id){
-    console.log('clicked!'+id);
-    this.props.dispatch(addFavourite(id));
+  select: function(favourite){
+    console.log('clicked!'+favourite.name);
+    // add to store
+    this.props.dispatch(addFavourite(favourite));
+    // add to localstorage
+    this.addToLocalStorage(favourite);
   },
 
 // Toogle Methods ------------------------
@@ -105,12 +117,12 @@ var MainPage = React.createClass({
     });
   },
 
-  renderSuggestion: function(suggestion){
+  renderSuggestion: function(suggestion,favourite=false){
     return(
       <Item
         onSetAsFavourite={this.select}
         id={suggestion.mkid}
-        favourite={false}
+        favourite={favourite}
         name={suggestion.name}
         photo={suggestion.image}
       />
@@ -169,6 +181,20 @@ var MainPage = React.createClass({
             renderSuggestion={this.renderSuggestion}
             inputProps={inputProps}
           />}
+          {//TODO make this a component
+          this.state.tab === 2 &&
+          <ul>
+            {this.props.user.favourites.map(function(favourite){
+            return(
+            <Item
+              onSetAsFavourite={this.select}
+              id={favourite.id}
+              favourite={true}
+              name={favourite.name}
+              photo={favourite.image}
+            />
+          )}.bind(this))}
+          </ul>}
       </div>
     )
   }

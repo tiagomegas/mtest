@@ -49,8 +49,13 @@ var Item = React.createClass({
   render () {
     return (
       <div
-        onClick={this.props.onSetAsFavourite.bind(null,this.props.id)}
-        ref={"item-"+this.props.id}
+        onClick={this.props.onSetAsFavourite.bind(null,
+          {
+          id:this.props.id,
+          name:this.props.name,
+          photo: this.props.photo
+          })}
+        key={"item-"+this.props.id}
         className="Musikki-Test-item">
         <div className="Musikki-Test-item-photo"
              style={{ backgroundImage: "url(" + this.props.photo +")" }} />

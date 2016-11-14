@@ -1,3 +1,6 @@
+// SCSS
+require('../../src/stylesheets/musikkitest.scss');
+
 var React               = require("react")
   , classnames          = require("classnames")
   , request             = require("../../src/requests/requests")
