@@ -11,7 +11,7 @@ import requests from '../../src/requests/requests';
 import localStorage from '../../src/localstorage/localstorage';
 import auth from '../../src/auth/auth';
 // Redux Store  -------------------------------------------------------
-import { setSession } from '../actions';
+import { setSession, addFavourite } from '../actions';
 // Components -------------------------------------------------------
 import Item from './Item';
 // React Class -----------------------------------------------------------------
@@ -33,8 +33,8 @@ var MainPage = React.createClass({
       browserHistory.push("/login");
     }
     else{
-      console.log(localStorage.localStorageGet("userLogged"));
-      this.props.dispatch(setSession(localStorage.localStorageGet("userLogged").name,localStorage.localStorageGet("userLogged").favourites));
+      let user = localStorage.localStorageGet("userLogged");
+      this.props.dispatch(setSession(user.name,user.favourites));
     }
   },
 
@@ -52,6 +52,7 @@ var MainPage = React.createClass({
 // Handler Methods ------------------------
   select: function(id){
     console.log('clicked!'+id);
+    this.props.dispatch(addFavourite(id));
   },
 
 // Toogle Methods ------------------------

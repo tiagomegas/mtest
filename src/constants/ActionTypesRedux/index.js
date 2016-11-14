@@ -1,7 +1,8 @@
 // This file defines the string variabel that represents the action
 
 //For the UserReducer
-export const SET_SESSION = 'SET_SESSION';
+export const SET_SESSION   = 'SET_SESSION';
+export const ADD_FAVOURITE = 'ADD_FAVOURITE';
 //For the SearchReducer
 export const SET_CURRENCY = 'SET_CURRENCY';
 export const SET_SEARCH_ATTRIBUTE = 'SET_SEARCH_ATTRIBUTE';
