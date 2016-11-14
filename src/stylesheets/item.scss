@@ -1,0 +1,18 @@
+.Musikki-Test-item{
+  list-style: none;
+  padding: 0;
+  &-photo{
+    width: 104px;
+    background-size: cover;
+    height: 96px;
+    display: inline-block;
+  }
+
+  &-name{
+    display: inline-block;
+  }
+
+  &-fav{
+    display: inline-block;
+  }
+}

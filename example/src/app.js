@@ -21,7 +21,7 @@ var App = React.createClass({
   render: function () {
 
     return (
-      <div className={'MusikkiTest'}>
+      <div className={'Item'}>
         {this.props.children}
       </div>
     );

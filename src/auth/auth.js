@@ -1,7 +1,7 @@
 var axios     = require("axios")
   , qs        = require("qs")
   , _         = require('lodash')
-  , storage   = require('../localStorage/localStorage')
+  , storage   = require('../localstorage/localstorage')
 
 var auth = {
   /**
@@ -101,24 +101,8 @@ var auth = {
    * @param  {Function} cb [description]
    * @return {[type]}      [description]
    */
-  logout: function (cb) {
-    //TODO change to request asap
-    axios({
-      method: "delete",
-      url: API_URL + "/sessions/destroy",
-      headers: this.authHeader()
-    }).then(function (response) {
-      mixpanel.identify(storage.localStorageGet("userId"));
-      mixpanel.track("User logged out");
+  logout: function () {
       this.destroyLocalStorage();
-      cb(false, response);
-      // this.onChange(false, response);
-    }.bind(this))
-      .catch(function (response) {
-        this.destroyLocalStorage();
-        cb(false, response);
-        // this.onChange(false, response);
-      }.bind(this));
   },
 
   /**
@@ -175,7 +159,7 @@ var auth = {
   },
 
   loggedIn: function () {
-    return !!storage.localStorageGet("token");
+    return !_.isUndefined(storage.localStorageGet("userLogged"));
   },
   /**
    * Get usedId

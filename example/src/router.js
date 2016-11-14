@@ -12,6 +12,7 @@ import { syncHistoryWithStore,routerMiddleware } from 'react-router-redux'
 // Top-level components
 var App                = require("./app");
 var LoginPage          = require("../../src/js/LoginPage");
+var MainPage          = require("../../src/js/MainPage");
 
 // Sync dispatched route actions to the history
 const reduxRouterMiddleware = routerMiddleware(browserHistory);
@@ -29,7 +30,8 @@ var router = (
   <Provider store={store}>
     <Router  history={history} >
       <Route path="/"                           component={App}>
-        <IndexRoute                             component={LoginPage} />
+        <IndexRoute                             component={MainPage} />
+        <Route path="/login"                    component={LoginPage} />
       </Route>
     </Router>
   </Provider>

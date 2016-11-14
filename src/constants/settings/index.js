@@ -1,5 +1,5 @@
 module.exports = {
-  API_URL    : 'https://music-api.musikki.com',
-  AppID : 123456789,
-  AppKey: 123456789
+  API_URL    : 'https://music-api.musikki.com/v1/',
+  APP_ID : 123456789,
+  APP_KEY: 123456789
 }

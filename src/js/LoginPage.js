@@ -4,11 +4,12 @@ import React        from 'react';
 import Uuid         from 'uuid';
 import { connect }  from 'react-redux';
 import { setSearchAttribute } from '../actions';
+import {browserHistory } from 'react-router';
 // Internal Dependencies ------------------------------------------------------------
 import requests from '../../src/requests/requests';
 import localStorage from '../../src/localstorage/localstorage';
 // Constant Dependencies -------------------------------------------------------
-
+let users = {};
 
 // React Class -----------------------------------------------------------------
 var LoginPage = React.createClass({
@@ -22,6 +23,7 @@ var LoginPage = React.createClass({
   },
 
   componentDidMount: function () {
+    users = localStorage.localStorageGet("users");
   },
 
 // Storage Methods ------------------------
@@ -31,23 +33,34 @@ var LoginPage = React.createClass({
   handleChangeName: function(event){
     this.setState({name: event.target.value});
   },
+
   handleChangePassword: function(event){
     this.setState({password: event.target.value});
   },
+
+  Login: function(){
+    localStorage.localStorageSet("userLogged", this.state.name);
+    browserHistory.push("/");
+  },
+
   LoginOrCreate: function(){
-    let user = localStorage.localStorageGet(this.state.name);
-    console.log(user);
-    if(_.isUndefined(user)){
-      localStorage.localStorageSet(this.state.name,JSON.stringify({password:this.state.password,favourites:{}}))
+    //let user = localStorage.localStorageGet(this.state.name);
+
+    // Check if user belongs to users object
+    if(!_.isUndefined(users[this.state.name])){
+      users[this.state.name].password === this.state.password ? this.Login() : alert('invalid password');
     }
     else{
-      console.log(user);
-      this.props.transitionTo(PREPAYMENT_URL+"/"+this.props.cartId);
+      //Create user if not
+      alert('New account created')
+      users[this.state.name] = {password:this.state.password,favourites:{}};
+      // Overwrite users object in localStorage
+      localStorage.localStorageSet("users",users);
+      this.Login();
     }
   },
 
 // Toogle Methods ------------------------
-
 
 // Search methods ------------------------
 
@@ -70,6 +83,7 @@ var LoginPage = React.createClass({
           value={this.state.password}
           onChange={this.handleChangePassword}
         />
+
         <button onClick={this.LoginOrCreate}>GO</button>
       </div>
     )

@@ -1,5 +1,7 @@
 // This file defines the string variabel that represents the action
 
+
+
 //For the SearchReducer
 export const SET_CURRENCY = 'SET_CURRENCY';
 export const SET_SEARCH_ATTRIBUTE = 'SET_SEARCH_ATTRIBUTE';
