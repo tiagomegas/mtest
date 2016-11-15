@@ -60,7 +60,7 @@ var Item = React.createClass({
         <div className="Musikki-Test-item-photo"
              style={{ backgroundImage: "url(" + this.props.photo +")" }} />
         <div className="Musikki-Test-item-name">{this.props.name}</div>
-        <div className="Musikki-Test-item-fav"></div>
+        <div className="Musikki-Test-item-fav"><i className="fi-check"></i></div>
       </div>
     )
   }

@@ -1,18 +1,39 @@
 .Musikki-Test-item{
   list-style: none;
   padding: 0;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.16), 5px 2px 6px rgba(0, 0, 0, 0.32);
+  margin-bottom: $items-margin-bottom;
+  cursor: pointer;
   &-photo{
-    width: 104px;
+    width: $items-photo-width;
     background-size: cover;
     height: 96px;
     display: inline-block;
+    vertical-align: middle;
   }
 
   &-name{
     display: inline-block;
+    vertical-align: middle;
+    width: 79%;
+    color: $items-name-fontcolor;
+    font-size: $items-name-fontsize;
   }
 
   &-fav{
     display: inline-block;
+    vertical-align: middle;
+    //float: right;
+    height: $items-favourite-height;
+    width: $items-favourite-width;
+    text-align: center;
+    background-color: $items-favourite-backgroundcolor;
+    border-radius: 50%;
+    i{
+      font-size: $items-favourite-fontsize;
+      text-align: center;
+      line-height: 1.4;
+      color: white;
+    }
   }
 }
