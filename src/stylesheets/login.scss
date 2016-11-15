@@ -1,0 +1,5 @@
+.Musikki-Test{
+  &-loginBtn{
+    @include button($button-loginLogoutBtn-color,white)
+  }
+}

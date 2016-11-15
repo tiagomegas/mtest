@@ -70,22 +70,31 @@ var LoginPage = React.createClass({
   render () {
     return (
       <div className="Musikki-Test">
-        <label>Username:</label>
-        <input
-          type="text"
-          placeholder={"e.g James Bond"}
-          value={this.state.name}
-          onChange={this.handleChangeName}
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          placeholder={"password"}
-          value={this.state.password}
-          onChange={this.handleChangePassword}
-        />
+        <div>
+          <div>
+            <label>Username:</label>
+            <input
+              type="text"
+              placeholder={"e.g James Bond"}
+              value={this.state.name}
+              onChange={this.handleChangeName}
+            />
+          </div>
+          <div>
+            <label>Password:</label>
+            <input
+              type="password"
+              placeholder={"password"}
+              value={this.state.password}
+              onChange={this.handleChangePassword}
+            />
+          </div>
+        </div>
 
-        <button onClick={this.LoginOrCreate}>GO</button>
+        <button
+          className="Musikki-Test-loginBtn"
+          onClick={this.LoginOrCreate}
+        >GO</button>
       </div>
     )
   }

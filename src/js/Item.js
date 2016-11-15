@@ -1,29 +1,14 @@
 "use strict";
 // NPM Dependencies ------------------------------------------------------------
 import React        from 'react';
-import Uuid         from 'uuid';
-import { connect }  from 'react-redux';
-import { setSearchAttribute } from '../actions';
-// Internal Dependencies ------------------------------------------------------------
-import requests from '../../src/requests/requests';
-import LocalStorage from '../../src/localstorage/localstorage';
-// Component Dependencies -------------------------------------------------------
-
-// Constant Dependencies -------------------------------------------------------
-
-
 // React Class -----------------------------------------------------------------
 var Item = React.createClass({
 
 // Lifecycles Functions
-  getInitialState: function () {
-    return {
-    };
-  },
 
   getDefaultProps: function () {
     return {
-      photo:"",
+      image:"",
       name: "",
       id:"",
       favourite:false,
@@ -40,11 +25,6 @@ var Item = React.createClass({
 // Handler Methods ------------------------
 
 
-// Toogle Methods ------------------------
-
-
-// Search methods ------------------------
-
 // ---- Render Methods -------------------
   render () {
     return (
@@ -53,14 +33,14 @@ var Item = React.createClass({
           {
           id:this.props.id,
           name:this.props.name,
-          photo: this.props.photo
-          })}
-        key={"item-"+this.props.id}
+          image: this.props.photo
+          },
+          this.props.favourite)}
         className="Musikki-Test-item">
         <div className="Musikki-Test-item-photo"
              style={{ backgroundImage: "url(" + this.props.photo +")" }} />
         <div className="Musikki-Test-item-name">{this.props.name}</div>
-        <div className="Musikki-Test-item-fav"><i className="fi-check"></i></div>
+        {this.props.favourite && <div className="Musikki-Test-item-fav"><i className="fi-check"></i></div>}
       </div>
     )
   }

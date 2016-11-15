@@ -1,9 +1,38 @@
 .Musikki-Test{
   font-family : "Roboto", sans-serif;
+  padding: 20px;
+  .react-autosuggest__input{
+    width: 100%;
+    padding-left: 10px;
+    margin-top: 10px;
+    height: 34px;
+    font-size: $button-fontsize;
+    border: 1px solid #aaa;
+    border-radius: $button-borderradius;
+    -webkit-appearance: none;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.16), 5px 2px 6px rgba(0, 0, 0, 0.32);
+    &:focus{
+      outline: none;
+    }
+  }
   ul{
     list-style: none;
     padding: 0;
     width: $items-list-width;
+  }
+  &-activeBtn{
+    background-color: #696565;
+  }
+  &-searchBtn{
+    margin-right: $searchBtn-marginright;
+    @include button(#949494,white);
+  }
+  &-favouritesBtn{
+    @include button(#949494,white);
+  }
+  &-logOutBtn{
+    float: right;
+    @include button($button-loginLogoutBtn-color,white);
   }
 }
 

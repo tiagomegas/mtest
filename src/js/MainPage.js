@@ -1,9 +1,7 @@
 "use strict";
 // NPM Dependencies ------------------------------------------------------------
 import React        from 'react';
-import Uuid         from 'uuid';
 import { connect }  from 'react-redux';
-import { setSearchAttribute } from '../actions';
 import {browserHistory } from 'react-router'
 import Autosuggest from 'react-autosuggest';
 // Internal Dependencies ------------------------------------------------------------
@@ -48,7 +46,8 @@ var MainPage = React.createClass({
   addToLocalStorage: function(favourite){
     // add to both userLogged and users
     let tmpUser = {"name":this.props.user.name,"favourites":this.props.user.favourites.concat(favourite)};
-    users[this.props.user.name] = tmpUser;
+    users[this.props.user.name].favourites = tmpUser.favourites;
+    console.log(users);
     localStorage.localStorageSet("users",users);
     localStorage.localStorageSet("userLogged",tmpUser);
   },
@@ -59,12 +58,17 @@ var MainPage = React.createClass({
   },
 
 // Handler Methods ------------------------
-  select: function(favourite){
-    console.log('clicked!'+favourite.name);
-    // add to store
-    this.props.dispatch(addFavourite(favourite));
-    // add to localstorage
-    this.addToLocalStorage(favourite);
+  //this function saves the selected favourite only if it isn't already a user's favourite
+  select: function(favourite,isFavourite){
+    if(!isFavourite){
+      // add to store
+      this.props.dispatch(addFavourite(favourite));
+      // add to localstorage
+      this.addToLocalStorage(favourite);
+    }
+    else{
+      console.log('already favourite!');
+    }
   },
 
 // Toogle Methods ------------------------
@@ -95,11 +99,10 @@ var MainPage = React.createClass({
         suggestions: suggestions
       });
     }
-
   },
 
   onSuggestionsFetchRequested: function(value){
-    //avoid redundant calls with same inputvalue forced by component
+    //avoid redundant calls with same inputvalue
     if(value.value!==this.state.inputValue.value){
       clearTimeout(this.timer);
       this.timer = setTimeout(() => {
@@ -117,9 +120,13 @@ var MainPage = React.createClass({
     });
   },
 
-  renderSuggestion: function(suggestion,favourite=false){
+  renderSuggestion: function(suggestion){
+    let favourite = _.some(this.props.user.favourites, function(favourite){
+      return favourite.id === suggestion.mkid;
+    });
     return(
       <Item
+        key={"item-"+suggestion.mkid}
         onSetAsFavourite={this.select}
         id={suggestion.mkid}
         favourite={favourite}
@@ -145,8 +152,7 @@ var MainPage = React.createClass({
   },
 
   // When suggestion is clicked, Autosuggest needs to populate the input element
-  // based on the clicked suggestion. Teach Autosuggest how to calculate the
-  // input value for every given suggestion.
+  // based on the clicked suggestion.
   getSuggestionValue: function(suggestion){
     return this.state.inputValue.value
   },
@@ -163,10 +169,13 @@ var MainPage = React.createClass({
     return (
       <div className="Musikki-Test">
         <button
+         className="Musikki-Test-searchBtn"
          onClick={this.changeTabSearch}>Search</button>
         <button
-        onClick={this.changeFav}>Favourites</button>
+          className="Musikki-Test-favouritesBtn"
+          onClick={this.changeFav}>Favourites</button>
         <button
+          className="Musikki-Test-logOutBtn"
           onClick={this.logOut}
         >Logout</button>
         {//TODO make this a component
@@ -185,8 +194,10 @@ var MainPage = React.createClass({
           this.state.tab === 2 &&
           <ul>
             {this.props.user.favourites.map(function(favourite){
+              console.log(favourite);
             return(
             <Item
+              key={"item-favourite-"+favourite.id}
               onSetAsFavourite={this.select}
               id={favourite.id}
               favourite={true}
