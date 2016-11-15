@@ -9,7 +9,7 @@ import requests from '../../src/requests/requests';
 import localStorage from '../../src/localstorage/localstorage';
 import auth from '../../src/auth/auth';
 // Redux Store  -------------------------------------------------------
-import { setSession, addFavourite } from '../actions';
+import { setSession, addFavourite,removeFavourite } from '../actions';
 // Components -------------------------------------------------------
 import Item from './Item';
 // Constant Dependencies -------------------------------------------------------
@@ -51,6 +51,10 @@ var MainPage = React.createClass({
     localStorage.localStorageSet("users",users);
     localStorage.localStorageSet("userLogged",tmpUser);
   },
+
+  removeFromLocalStorage: function(favourite){
+    console.log('remove it from storage');
+  },
 // Login Methods ------------------------
   logOut: function(){
     localStorage.localStorageDelete("userLogged");
@@ -67,7 +71,8 @@ var MainPage = React.createClass({
       this.addToLocalStorage(favourite);
     }
     else{
-      console.log('already favourite!');
+      //this.props.dispatch(removeFavourite(favourite))
+      this.removeFromLocalStorage(favourite);
     }
   },
 
