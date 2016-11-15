@@ -1,4 +1,6 @@
 var Webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+
 var config = {
   entry: {
     app: ["./example/src/main"],
@@ -9,7 +11,6 @@ var config = {
       "react-dom",
       "uuid",
       "lodash",
-      "simplecomponents"
     ]
   },
   devtool: "eval",
@@ -35,7 +36,11 @@ var config = {
     noParse: [],
     loaders: [
 
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader", query: {plugins: ['transform-runtime'], presets: ['react', 'es2015', 'stage-0']} },
+      { test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader", query: {plugins: ['transform-runtime'], presets: ['react', 'es2015', 'stage-0']} },
+      { test: /\.scss/, loader:'css-loader!sass-loader' },
+      { test: /\.css/, loader:'css-loader' }
     ]
   }
 };
