@@ -22,7 +22,7 @@ var App = React.createClass({
   },
 
   render: function () {
-
+  console.log('testin entry point');
     return (
       <div className={'Item'}>
         {this.props.children}
