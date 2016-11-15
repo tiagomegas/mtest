@@ -32,9 +32,14 @@ export default function userReducer(state = initialState, action) {
               favourites: state.favourites.concat(action.favourite)}
     }
     case REMOVE_FAVOURITE:{
-      var tempFavourites = state.favourites.slice(0);
+
+      //let tempFavourites = state.favourites.concat();
+      console.log(state.favourites);
+      _.remove(state.favourites, function (favourite) {
+        return favourite.id === action.favourite.id
+      });
       return {...state,
-              favourites: removeItem(action.favourite,tempFavourites )}
+              favourites: state.favourites}
     }
     default:
       return state;

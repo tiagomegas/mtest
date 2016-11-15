@@ -74,6 +74,7 @@ var LoginPage = React.createClass({
           <div>
             <label>Username:</label>
             <input
+              className="Musikki-Test-inputBox"
               type="text"
               placeholder={"e.g James Bond"}
               value={this.state.name}
@@ -83,6 +84,7 @@ var LoginPage = React.createClass({
           <div>
             <label>Password:</label>
             <input
+              className="Musikki-Test-inputBox"
               type="password"
               placeholder={"password"}
               value={this.state.password}

@@ -47,12 +47,12 @@ var MainPage = React.createClass({
     // add to both userLogged and users
     let tmpUser = {"name":this.props.user.name,"favourites":this.props.user.favourites.concat(favourite)};
     users[this.props.user.name].favourites = tmpUser.favourites;
-    console.log(users);
     localStorage.localStorageSet("users",users);
     localStorage.localStorageSet("userLogged",tmpUser);
   },
 
   removeFromLocalStorage: function(favourite){
+
     console.log('remove it from storage');
   },
 // Login Methods ------------------------
@@ -71,7 +71,7 @@ var MainPage = React.createClass({
       this.addToLocalStorage(favourite);
     }
     else{
-      //this.props.dispatch(removeFavourite(favourite))
+      this.props.dispatch(removeFavourite(favourite))
       this.removeFromLocalStorage(favourite);
     }
   },
