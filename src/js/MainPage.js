@@ -4,16 +4,21 @@ import React        from 'react';
 import { connect }  from 'react-redux';
 import {browserHistory } from 'react-router'
 import Autosuggest from 'react-autosuggest';
+
 // Internal Dependencies ------------------------------------------------------------
 import requests from '../../src/requests/requests';
 import localStorage from '../../src/localstorage/localstorage';
 import auth from '../../src/auth/auth';
+
 // Redux Store  -------------------------------------------------------
 import { setSession, addFavourite,removeFavourite } from '../actions';
+
 // Components -------------------------------------------------------
 import Item from './Item';
+
 // Constant Dependencies -------------------------------------------------------
 let users = {};
+
 // React Class -----------------------------------------------------------------
 var MainPage = React.createClass({
 
@@ -98,14 +103,12 @@ var MainPage = React.createClass({
     this.changeTab(2);
   },
 
-
 // Search methods ------------------------
   shouldRenderSuggestions:function(value) {
   return value.trim().length > 1;
   },
 
   setSuggestionsCallback: function(suggestions){
-    console.log(suggestions);
     if(Array.isArray(suggestions)){
       this.setState({
         suggestions: suggestions
@@ -171,7 +174,6 @@ var MainPage = React.createClass({
 
 // ---- Render Methods -------------------
   render () {
-  console.log(this.state.suggestions);
     // Autosuggest will pass through all these props to the input element.
     const inputProps = {
       placeholder: 'Type a band or artist',
@@ -206,7 +208,6 @@ var MainPage = React.createClass({
           this.state.tab === 2 &&
           <ul>
             {this.props.user.favourites.map(function(favourite){
-              console.log(favourite);
             return(
             <Item
               key={"item-favourite-"+favourite.id}
@@ -221,7 +222,6 @@ var MainPage = React.createClass({
       </div>
     )
   }
-
 });
 
 const mapStateToProps = state => ({

@@ -1,10 +1,18 @@
 "use strict";
 // NPM Dependencies ------------------------------------------------------------
 import React        from 'react';
+
 // React Class -----------------------------------------------------------------
 var Item = React.createClass({
 
 // Lifecycles Functions
+  propTypes: {
+    image: React.PropTypes.string,
+    name: React.PropTypes.string,
+    id: React.PropTypes.number,
+    favourite: React.PropTypes.bool,
+    onSetAsFavourite: React.PropTypes.func
+  },
 
   getDefaultProps: function () {
     return {
@@ -15,14 +23,6 @@ var Item = React.createClass({
       onSetAsFavourite: function(){}
     };
   },
-
-  componentDidMount: function () {
-  },
-
-// Storage Methods ------------------------
-
-
-// Handler Methods ------------------------
 
 
 // ---- Render Methods -------------------

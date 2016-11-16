@@ -1,19 +1,11 @@
-// SCSS
+// Styles SCSS require
 require('../../src/stylesheets/musikkitest.scss');
 
 var React               = require("react")
-  , classnames          = require("classnames")
-  , request             = require("../../src/requests/requests")
   , localStorage        = require("../../src/localstorage/localstorage")
   , _                   = require('lodash')
 
 var App = React.createClass({
-
-  getInitialState: function(){
-    return {
-
-    }
-  },
 
   componentWillMount: function(){
     if(_.isUndefined(localStorage.localStorageGet("users"))){
@@ -22,7 +14,6 @@ var App = React.createClass({
   },
 
   render: function () {
-  console.log('testin entry point');
     return (
       <div className={'Item'}>
         {this.props.children}

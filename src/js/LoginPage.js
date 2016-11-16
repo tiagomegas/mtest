@@ -1,13 +1,13 @@
 "use strict";
 // NPM Dependencies ------------------------------------------------------------
 import React        from 'react';
-import Uuid         from 'uuid';
 import { connect }  from 'react-redux';
 import { setSession } from '../actions';
 import {browserHistory } from 'react-router';
+
 // Internal Dependencies ------------------------------------------------------------
-import requests from '../../src/requests/requests';
 import localStorage from '../../src/localstorage/localstorage';
+
 // Constant Dependencies -------------------------------------------------------
 let users = {};
 
@@ -25,9 +25,6 @@ var LoginPage = React.createClass({
   componentDidMount: function () {
     users = localStorage.localStorageGet("users");
   },
-
-// Storage Methods ------------------------
-
 
 // Handler Methods ------------------------
   handleChangeName: function(event){
