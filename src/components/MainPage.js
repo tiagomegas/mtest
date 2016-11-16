@@ -192,7 +192,8 @@ var MainPage = React.createClass({
           className="Musikki-Test-logOutBtn"
           onClick={this.logOut}
         >Logout</button>
-        {//TODO make this a component
+        <span className="Musikki-Test-userSession">{"Hello "+this.props.user.name+" !"}</span>
+        {
           this.state.tab === 1 &&
           <Autosuggest
             shouldRenderSuggestions={this.shouldRenderSuggestions}
@@ -204,7 +205,7 @@ var MainPage = React.createClass({
             renderSuggestion={this.renderSuggestion}
             inputProps={inputProps}
           />}
-          {//TODO make this a component
+          {
           this.state.tab === 2 &&
           <ul>
             {this.props.user.favourites.map(function(favourite){

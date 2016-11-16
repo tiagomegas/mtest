@@ -30,6 +30,14 @@
   &-favouritesBtn{
     @include button(#949494,white);
   }
+
+  &-userSession{
+    color: $items-name-fontcolor;
+    margin-right: 10px;
+    float: right;
+    font-size: 23px;
+  }
+
   &-logOutBtn{
     float: right;
     @include button($button-loginLogoutBtn-color,white);
