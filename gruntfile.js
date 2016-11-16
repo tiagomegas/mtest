@@ -101,7 +101,9 @@ module.exports = function (grunt) {
           filename: 'musikkitest.min.js'
         },
         plugins: [
+          new webpack.optimize.DedupePlugin(),
           new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
             compressor: {
               warnings: false
             }

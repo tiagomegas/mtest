@@ -13,10 +13,11 @@ var config = {
       "lodash",
     ]
   },
-  devtool: "eval",
+  devtool: 'source-map',
   output: {
     path: __dirname + "/dist/",
-    filename: "/bundle.[hash].js"
+    publicPath: '/mtest/',
+    filename: "/bundle.js"
   },
   plugins: [
     new Webpack.optimize.CommonsChunkPlugin('vendors', '/vendors.js'),

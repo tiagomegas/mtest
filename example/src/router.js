@@ -30,7 +30,7 @@ const history = syncHistoryWithStore(browserHistory, store)
 var router = (
   <Provider store={store}>
     <Router  history={history} >
-      <Route  path="/mtest/"                                      component={App}>
+      <Route  path="/"                              component={App}>
         <IndexRoute                                 component={MainPage} />
         <Route path="login"                         component={LoginPage} />
       </Route>

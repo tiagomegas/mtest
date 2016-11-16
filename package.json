@@ -43,6 +43,7 @@
     "css-loader": "^0.23.0",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
+    "gh-pages": "^0.11.0",
     "grunt": "1.0.1",
     "grunt-babel": "^6.0.0",
     "grunt-cli": "^1.2.0",
@@ -67,9 +68,11 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "scripts": {
-    "build": "NODE_ENV=production grunt build",
     "dev": "node server.js",
-    "test": "NODE_ENV=test grunt travis"
+    "test": "NODE_ENV=test grunt travis",
+    "deploy": "gh-pages -d dist",
+    "postinstall": "webpack --config ./webpack.config.js --progress --colors",
+    "build": "webpack --config ./webpack.prod.config.js --progress --colors"
   },
   "license": "ISC",
   "main": "dist/musikkitest.min.js",
