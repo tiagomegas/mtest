@@ -71,7 +71,6 @@
     "dev": "node server.js",
     "test": "NODE_ENV=test grunt travis",
     "deploy": "gh-pages -d dist",
-    "postinstall": "webpack --config ./webpack.config.js --progress --colors",
     "build": "webpack --config ./webpack.prod.config.js --progress --colors"
   },
   "license": "ISC",
