@@ -34,8 +34,10 @@ var router = (
         <IndexRoute                                 component={MainPage} />
         <Route path="login"                         component={LoginPage} />
       </Route>
+      <Route path="*"                               component={NotFound} />
     </Router>
   </Provider>
 )
+
 module.exports = history;
 module.exports = router;

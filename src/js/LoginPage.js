@@ -71,7 +71,7 @@ var LoginPage = React.createClass({
     return (
       <div className="Musikki-Test">
         <div>
-          <div>
+          <div className="Musikki-Test-username">
             <label>Username:</label>
             <input
               className="Musikki-Test-inputBox"
@@ -81,7 +81,7 @@ var LoginPage = React.createClass({
               onChange={this.handleChangeName}
             />
           </div>
-          <div>
+          <div className="Musikki-Test-password">
             <label>Password:</label>
             <input
               className="Musikki-Test-inputBox"

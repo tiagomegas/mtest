@@ -1,12 +1,14 @@
 .Musikki-Test{
   &-loginBtn{
+    margin-top: 40px;
     @include button($button-loginLogoutBtn-color,white)
   }
+
   &-inputBox{
-    width: 20%;
-    padding-left: 10px;
-    margin-top: 10px;
-    height: 34px;
+    width:$inputBox-width;
+    padding-left: $inputBox-paddingleft;
+    margin-top: $inputBox-margintop;
+    height: $inputBox-height;
     font-size: $button-fontsize;
     border: 1px solid #aaa;
     border-radius: $button-borderradius;
@@ -14,6 +16,17 @@
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.16), 5px 2px 6px rgba(0, 0, 0, 0.32);
     &:focus{
       outline: none;
+    }
+  }
+  &-password{
+    label{
+      margin-right: 6px;
+    }
+  }
+
+  &-username{
+    label{
+      margin-right: 4px;
     }
   }
 }
