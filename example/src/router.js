@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router,IndexRoute, browserHistory, Route, Link, Redirect } from 'react-router';
+import { Router,IndexRoute, browserHistory, Route } from 'react-router';
 
 // Store imports and initializations
 import { Provider } from 'react-redux';
@@ -13,6 +13,7 @@ import { syncHistoryWithStore,routerMiddleware } from 'react-router-redux'
 var App                = require("./app");
 var LoginPage          = require("../../src/js/LoginPage");
 var MainPage          = require("../../src/js/MainPage");
+var NotFound          = require("../../src/js/NotFound");
 
 // Sync dispatched route actions to the history
 const reduxRouterMiddleware = routerMiddleware(browserHistory);
@@ -29,9 +30,9 @@ const history = syncHistoryWithStore(browserHistory, store)
 var router = (
   <Provider store={store}>
     <Router  history={history} >
-      <Route path="/"                           component={App}>
-        <IndexRoute                             component={MainPage} />
-        <Route path="/login"                    component={LoginPage} />
+      <Route  path="/mtest/"                                      component={App}>
+        <IndexRoute                                 component={MainPage} />
+        <Route path="login"                         component={LoginPage} />
       </Route>
     </Router>
   </Provider>
